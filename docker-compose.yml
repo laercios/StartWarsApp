@@ -3,18 +3,12 @@ version: '3.7'
 services:
   frontend:
     image: laercios/starwarsapp_frontend:latest
-    build:
-      context: app
-      dockerfile: ../Dockerfile
     working_dir: /app
-    command: sleep infinity
+    command: yarn serve
     volumes:
       - ./app/public:/app/public
       - ./app/src:/app/src
-      - ./app/tests:/app/tests
-      - ./app/.babelIrc:/app/.babelIrc
       - ./app/.editorconfig:/app/.editorconfig
-      - ./app/jest.config.js:/app/jest.config.js
       - ./app/package.json:/app/package.json
       - ./app/yarn.lock:/app/yarn.lock
     ports:

@@ -5,16 +5,14 @@
 
 This project is a Vue.js SPA to see information about Sta Wars. The project can be possible because there is a [API](https://swapi.co) with information (API is open).
 
-This application consist of showing information about Characters who act at Star Wars movies. Information about Starship is a business need. And then it is need to be show.
+This application consist of showing information about characters who act at Star Wars movies. Information about Starship is a business need. And then it is need to be show.
 
 ## What was used to build the project?
 
 - Docker and docker-compose
 - node 13.10 (latest)
 - @vue/cli 4.2.3 (latest)
-- JEST 
 - JStandard
-- Nightwatch
 - Pug
 - Stylus
 
@@ -23,7 +21,9 @@ This application consist of showing information about Characters who act at Star
 You need docker and docker-compose installed.
 If you have MacOS, just only [download docker](https://hub.docker.com/editions/community/docker-ce-desktop-mac) and follow the easy GUI.
 
+
 If you have a Linux, you can follow [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04) to install docker on Ubuntu (or other distributions which is debian based).
+
 
 When you finished installation, this commands should work:
 
@@ -39,19 +39,8 @@ docker-compose version 1.25.2, build 698e2846
 ### Run project
 To run this command, do you need to stay on the same path which docker-compose.yml file.
 
-```
+```bash
 docker-compose up
 ```
 
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Application will be running on port 8080. You will access: http://localhost:8080/ 
