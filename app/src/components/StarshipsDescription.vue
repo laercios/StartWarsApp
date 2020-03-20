@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  p.title Starship Information
+  p.title(v-if="starships && starships.length > 0") Starship Information
   div(v-for="starship in starships")
     p Name:
       span {{ ' ' + starship.name }}

@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+div.table
   Table(:people='people')
   div(v-if="this.starships.length != 0")
     infinite-loading(
@@ -71,5 +71,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+.table
+  margin-left: 5%
 </style>

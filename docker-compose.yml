@@ -7,7 +7,7 @@ services:
       context: app
       dockerfile: ../Dockerfile
     working_dir: /app
-    command: sleep infinity
+    command: yarn serve
     volumes:
       - ./app/public:/app/public
       - ./app/src:/app/src
