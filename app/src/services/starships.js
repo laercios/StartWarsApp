@@ -20,3 +20,20 @@ const requestStartShipByPage = (page) => {
     .get(`https://swapi.co/api/starships/?page=${page}`)
   return request
 }
+
+export const getStarshipById = (id) => {
+  const request = requestStarshipById(id)
+  return request.then(
+    result => {
+      return result.data
+    }
+  ).catch(error => {
+    return Promise.reject(error)
+  })
+}
+
+const requestStarshipById = (id) => {
+  const request = axios
+    .get(`https://swapi.co/api/starships/${id}/`)
+  return request
+}

@@ -2,12 +2,17 @@
 div
   p character list
   div(v-if="this.people.length != 0")
-    el-table(:data='people', style='width: 100%')
+    el-table(:data='people', style='width: 90%')
+      el-table-column(type='expand')
+        template(slot-scope='props')
+          PersonDescription(:person='props.row')
+          StarshipsDescription(:starships='props.row.starshipsObjectArray')
       el-table-column(
-        prop='name',
         label='Name',
         width='160'
       )
+        template(slot-scope='props')
+          p.name {{ props.row.name }}
       el-table-column(
         prop='gender',
         label='Gender',
@@ -29,26 +34,6 @@ div
         width='85'
       )
       el-table-column(
-        prop='hair_color',
-        label='Hair Color',
-        width='110'
-      )
-      el-table-column(
-        prop='skin_color',
-        label='Skin Color',
-        width='110'
-      )
-      el-table-column(
-        prop='eye_color',
-        label='Eye Color',
-        width='110'
-      )
-      el-table-column(
-        prop='eye_color',
-        label='Eye Color',
-        width='110'
-      )
-      el-table-column(
         prop='starships_names',
         label='Starships Names'
       )
@@ -59,9 +44,16 @@ div
 </template>
 
 <script>
+import PersonDescription from '@/components/PersonDescription.vue'
+import StarshipsDescription from '@/components/StarshipsDescription.vue'
+
 export default {
   props: {
     people: Array
+  },
+  components: {
+    PersonDescription,
+    StarshipsDescription
   }
 }
 </script>
@@ -72,4 +64,8 @@ p
   text-align: center
   font-family: 'Press Start 2P', cursive
   text-transform: capitalize
+p.name
+  font-size: 12px
+p.expander
+  text-align: center
 </style>

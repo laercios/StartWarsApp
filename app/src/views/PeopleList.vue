@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     infiniteHandler ($state) {
-      this.$peopleService.getPeople(
+      this.$peopleService.getPeopleByPage(
         this.page
       ).then((result) => {
         if (result.length) {
@@ -47,6 +47,11 @@ export default {
                 } else {
                   person.starships_names = startship.name
                   person.starships_models = startship.model
+                }
+                if (person.starshipsObjectArray) {
+                  person.starshipsObjectArray.push(startship)
+                } else {
+                  person.starshipsObjectArray = [startship]
                 }
               }
             })
