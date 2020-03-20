@@ -5,18 +5,24 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+"test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/register": "^7.8.6",
+    "babel-jest": "23.4.0",
     "core-js": "^3.6.4",
     "element-ui": "^2.4.5",
+    "jest": "^25.1.0",
     "vue": "^2.6.11",
     "vue-infinite-loading": "^2.4.5",
     "vue-router": "^3.1.5"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/preset-env": "^7.8.7",
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-e2e-nightwatch": "~4.2.0",
     "@vue/cli-plugin-eslint": "~4.2.0",
@@ -72,7 +78,29 @@
     "last 2 versions"
   ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest"
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.vue$": "vue-jest",
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^vue$": "<rootDir>/node_modules/vue/dist/vue.common.js",
+      "^test-utils$": "<rootDir>/node_modules/@vue/test-utils/dist/vue-test-utils.js",
+      "^~/(.*)$": "<rootDir>/$1",
+      "^src/(.*)$": "<rootDir>/src/$1",
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "snapshotSerializers": [
+      "jest-serializer-vue"
+    ],
+    "testMatch": [
+      "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
+    ]
   },
   "babel": {
     "plugins": [
@@ -82,6 +110,11 @@
           "libraryName": "element-ui",
           "styleLibraryName": "theme-chalk"
         }
+      ]
+    ],
+    "presets": [
+      [
+        "@babel/preset-env"
       ]
     ]
   }

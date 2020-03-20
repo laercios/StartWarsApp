@@ -14,6 +14,9 @@ div
 export default {
   props: {
     person: Object
+  },
+  mounted () {
+    console.log(this.person)
   }
 }
 </script>
