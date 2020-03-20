@@ -9,6 +9,12 @@ services:
     working_dir: /app
     command: sleep infinity
     volumes:
-      - ./app:/app/
+      - ./app/public:/app/public
+      - ./app/src:/app/src
+      - ./app/tests:/app/tests
+      - ./app/.babelIrc:/app/.babelIrc
+      - ./app/.editorconfig:/app/.editorconfig
+      - ./app/package.json:/app/package.json
+      - ./app/yarn.lock:/app/yarn.lock
     ports:
       - 8080:8080

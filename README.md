@@ -4,6 +4,13 @@
 
 - node 13.10 (latest)
 - @vue/cli 4.2.3 (latest)
+- JEST 
+
+JStandard
+Nightwatch
+Pug
+Stylus
+
 
 ## Project setup
 ```
