@@ -1,7 +1,7 @@
 <template lang="pug">
 div
-  p(v-if="this.starships.length != 0") test
-  p(v-if="this.people.length != 0")
+  p character list
+  div(v-if="this.people.length != 0")
     el-table(:data='people', style='width: 100%')
       el-table-column(
         prop='name',
@@ -43,28 +43,25 @@ div
         label='Eye Color',
         width='110'
       )
-      //- el-table-column(prop='address', label='Address')
+      el-table-column(
+        prop='eye_color',
+        label='Eye Color',
+        width='110'
+      )
+      el-table-column(
+        prop='starships_names',
+        label='Starships Names'
+      )
+      el-table-column(
+        prop='starships_models',
+        label='Starships Models'
+      )
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      starships: [],
-      people: []
-    }
-  },
-  mounted () {
-    this.$starshipService.getAllStartShips().then(
-      (result) => {
-        this.starships = result
-      }
-    )
-    this.$peopleService.getPeople().then(
-      (result) => {
-        this.people = result
-      }
-    )
+  props: {
+    people: Array
   }
 }
 </script>
@@ -73,5 +70,6 @@ export default {
 p
   font-size: 2em
   text-align: center
-
+  font-family: 'Press Start 2P', cursive
+  text-transform: capitalize
 </style>
